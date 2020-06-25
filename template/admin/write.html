@@ -1,0 +1,23 @@
+{% set title = "제품 등록" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+    <form action="" method="POST">
+        <table class="table table-bordered">
+            <tr>
+                <th>제품명</th>
+                <td><input class="form-control" type="text" name="name"></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input class="form-control" type="number" name="price"></td>
+            </tr>
+            <tr>
+                <th>설명</th>
+                <td><input class="form-control" type="text" name="description"></td>
+            </tr>
+        </table>
+        <input type="submit" class="btn btn-default" value="작성하기">
+    </form>
+
+{% endblock %} 

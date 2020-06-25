@@ -8,15 +8,15 @@ class App {
     constructor() {
         this.app = express();
 
+        this.setViewEngine();
+        
         this.setMiddleWare();
 
-        this.setViewEngine();
-
-        this.setRouter();
-
         this.setStatic();
-
-        this.setLoclas();
+        
+        this.setLocals();
+        
+        this.setRouter();
 
         this.status404();
 
@@ -32,7 +32,7 @@ class App {
     setViewEngine() {
         nunjucks.configure('template', {
             autoescape: true,
-            express: app
+            express: this.app
         });
     }
 
@@ -40,10 +40,12 @@ class App {
         this.app.use('/uploads', express.static('uploads'));
     }
 
-    setLoclas() {
-        this.app.use((request, response, next)=> {
-            response.locals.isLogin = true;
-            response.locals.request_path = request.path;
+
+    setLocals() {
+        //템플릿 변수
+        this.app.use((request, response, next) => {
+            this.app.locals.isLogin = true;
+            this.app.locals.request_path = request.path;
             next();
         });
     }
