@@ -1,0 +1,23 @@
+{% set title = '관리자 : 수정페이지' %}
+{% extends 'layout/base.html'%}
+
+{% block content %}
+    <form action="" method="POST">
+        <table class="table table-bordered">
+            <tr>
+                <th>제품명</th>
+                <td><input class="form-control" type="text" name="name" value="{{product.name}}"></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input class="form-control" type="number" name="price" value="{{product.price}}"></td>
+            </tr>
+            <tr>
+                <th>설명</th>
+                <td><input class="form-control" type="text" name="description" value="{{product.description}}"></td>
+            </tr>
+        </table>
+        <a href="/admin/products/detail/{{product.id}}" class="btn btn-default">뒤로가기</a>
+        <input type="submit" class="btn btn-default" value="수정하기">
+    </form>
+{% endblock %}

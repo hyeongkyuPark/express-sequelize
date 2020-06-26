@@ -86,7 +86,7 @@ class App {
     }
 
     errorHandler() {
-        this.app.use((request, response, _)=> {
+        this.app.use((err, request, response, _)=> {
             response.status(500).render('common/500.html');
         });
     }
